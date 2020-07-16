@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Search from './component/Search.jsx'
 import Results from './component/Results.jsx'
+import Popup from './component/Popup.jsx'
 import CardData from './data';
 
 
@@ -29,6 +30,23 @@ export default function App () {
             
         }
     }
+    const openPopup = id => {
+        const filtered = state.card.filter(c => (
+            c.id === id
+        ))
+        
+        setState(prevState => {
+            return { ...prevState, selected: filtered[0] }
+        })
+        console.log(filtered[0].name)
+    }
+    const closePopup = () => {
+        setState(prevState => {
+            return{
+                ...prevState, selected: {}
+            }
+        })
+    }
 
     // const filteredCard = e => {
     //     let finalC = card.filter(
@@ -53,7 +71,11 @@ export default function App () {
             />
             <Results results={state.results}
             card={state.card}
+            openPopup={openPopup}
             />
+            {(typeof state.selected.id !== "undefined") ? <Popup selected={state.selected}
+            closePopup={closePopup}/>
+            : false}
         </main>
     )
 }

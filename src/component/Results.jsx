@@ -1,19 +1,15 @@
 import React from 'react';
-// import Result from './Result.jsx'
+import Result from './Result.jsx'
 
 
 
-function Results({ results, card}) {
+function Results({ results, card, openPopup}) {
 
   
     return (
         <section className="results">
            {card.map(c => (
-               <div key={c.id}>
-                   <h1>{c.name}</h1>
-                    <img src={c.img}/>
-
-               </div>
+               <Result key={c.id} result={c} openPopup={openPopup}/>
            ))}
         </section>
     )
