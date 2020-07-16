@@ -23,9 +23,12 @@ export default function App () {
     const search = e => {
         if(e.key === "Enter"){
             let result = e.target.value
+            let finalCard = state.card.filter(c => (
+                c.name === result
+            ))
             
             setState(prevState => {
-                return {...prevState, results: result}
+                return {...prevState, results: result, finalResult:finalCard[0]}
             })
             
         }
@@ -72,6 +75,7 @@ export default function App () {
             <Results results={state.results}
             card={state.card}
             openPopup={openPopup}
+            finalResult={state.finalResult}
             />
             {(typeof state.selected.id !== "undefined") ? <Popup selected={state.selected}
             closePopup={closePopup}/>

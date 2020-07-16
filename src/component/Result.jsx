@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Result({result, openPopup}) {
+function Result({result, openPopup, finalResult}) {
     return (
        
-        <div className="result" onClick={()=>openPopup(result.id)}>
-            <img src={result.img}/>
-            <h3>{result.name}</h3>
+        <div className="result" onClick={()=>openPopup(finalResult.id)}>
+            <img src={finalResult.img}/>
+            <h3>{finalResult.name}</h3>
         </div>
     )
 }
