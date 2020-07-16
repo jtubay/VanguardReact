@@ -1,13 +1,14 @@
 import React from 'react'
 
-function Search({card}) {
+function Search({card, handleInput, search}) {
     return (
-        <div>
-            {card.map(c => (
-                <h1 key={c.id}>{c.name}</h1>
-            ))}
-            
-        </div>
+        <section className="searchbox-wrap">
+            <input type="text"
+            placeholder="Search for a card"
+            className="searchbox"
+            onChange={handleInput}
+            onKeyPress={search}/>
+        </section>
     )
 }
 

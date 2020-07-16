@@ -2,12 +2,14 @@ const cardProducts =[
     {
         id: 1,
         name: "Heavenly Altmile",
-        img: "",
+        img: "img/altmile.jpg",
+        desc: "hello1"
     },
     {
         id: 2,
         name: "Blue Knight Altmile",
-        img: "",
+        img: "img/ariel.jpg",
+        desc: "helo2"
     }
 ];
 
